@@ -32,7 +32,7 @@ const Contact: React.FC = () => {
 
           {/* Email Card */}
           <div className="bg-neutral-50 p-8 border-t-4 border-thinkRed text-center hover:shadow-lg transition-shadow duration-300">
-             <div className="w-12 h-12 bg-neutral-900 text-white rounded-full flex items-center justify-center mx-auto mb-6">
+            <div className="w-12 h-12 bg-neutral-900 text-white rounded-full flex items-center justify-center mx-auto mb-6">
               <Mail size={24} />
             </div>
             <h3 className="font-bold text-lg mb-3">Email</h3>
@@ -44,27 +44,27 @@ const Contact: React.FC = () => {
 
           {/* Phone Card */}
           <div className="bg-neutral-50 p-8 border-t-4 border-thinkRed text-center hover:shadow-lg transition-shadow duration-300">
-             <div className="w-12 h-12 bg-neutral-900 text-white rounded-full flex items-center justify-center mx-auto mb-6">
+            <div className="w-12 h-12 bg-neutral-900 text-white rounded-full flex items-center justify-center mx-auto mb-6">
               <Phone size={24} />
             </div>
             <h3 className="font-bold text-lg mb-3">Telefon</h3>
             <a href="tel:+420910129289" className="text-gray-600 hover:text-thinkRed transition-colors block mb-1">
               +420 910 129 289
             </a>
-            <span className="text-sm text-gray-400">Po-Ne 8:00 - 20:00</span>
+            <span className="text-sm text-gray-400">Po-Ne 10:00 - 20:00</span>
           </div>
         </div>
 
         {/* Legal Info */}
         <div className="mt-16 pt-8 border-t border-gray-100 flex flex-col md:flex-row justify-center items-center gap-6 text-gray-500 text-sm font-mono">
-           <div className="flex items-center gap-2">
-             <Building2 size={16} />
-             <span>IČO: 23893591</span>
-           </div>
-           <span className="hidden md:inline text-gray-300">|</span>
-           <div>
-             Spisová značka C 434666 vedená u Městského soudu v Praze
-           </div>
+          <div className="flex items-center gap-2">
+            <Building2 size={16} />
+            <span>IČO: 23893591</span>
+          </div>
+          <span className="hidden md:inline text-gray-300">|</span>
+          <div>
+            Spisová značka C 434666 vedená u Městského soudu v Praze
+          </div>
         </div>
       </div>
     </Section>
