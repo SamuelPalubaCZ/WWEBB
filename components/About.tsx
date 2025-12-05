@@ -4,10 +4,10 @@ import { Unlink, Lightbulb, MessageCircle, Puzzle, Clock, ThumbsUp } from 'lucid
 
 const About: React.FC = () => {
   const team = [
-    { name: "Samuel Paluba", role: "Founder", initials: "SP" },
-    { name: "Vojtěch Pell", role: "Vedoucí komunikace, Technik", initials: "VP" },
-    { name: "Erdinc Daskin", role: "Developer, Technik", initials: "ED" },
-    { name: "Ondřej Jansa", role: "Vedoucí developmentu", initials: "OJ" },
+    { name: "Samuel Paluba", role: "Founder", initials: "SP", image: "/images/samuel-paluba.jpg" },
+    { name: "Vojtěch Pell", role: "Vedoucí komunikace, Technik", initials: "VP", image: "/images/vojtech-pell.png" },
+    { name: "Erdinc Daskin", role: "Developer, Technik", initials: "ED", image: "/images/erdinc-daskin.png" },
+    { name: "Ondřej Jansa", role: "Vedoucí developmentu", initials: "OJ", image: "/images/ondrej-jansa.png" },
     { name: "Kateřina Břeňová", role: "UI/UX", initials: "KB" },
     { name: "Tobiáš Mokošín", role: "Nový člen týmu", initials: "TM" }
   ];
@@ -39,7 +39,7 @@ const About: React.FC = () => {
             <p className="text-gray-600">Roky praxe nám ukázaly, kde firmy nejčastěji krvácejí peníze a čas.</p>
           </div>
           <div className="bg-red-50 p-8 rounded-sm border-l-4 border-thinkRed">
-             <div className="w-12 h-12 bg-thinkRed text-white rounded-full flex items-center justify-center mb-4">
+            <div className="w-12 h-12 bg-thinkRed text-white rounded-full flex items-center justify-center mb-4">
               <MessageCircle size={24} />
             </div>
             <h3 className="text-xl font-bold mb-2">Složitá komunikace</h3>
@@ -54,47 +54,46 @@ const About: React.FC = () => {
           Co přinášíme
         </h2>
         <div className="grid md:grid-cols-3 gap-12">
-           <div className="text-center group">
-              <div className="w-20 h-20 mx-auto bg-transparent border-2 border-white rounded-full flex items-center justify-center mb-6 group-hover:bg-thinkRed group-hover:border-thinkRed transition-all duration-300">
-                <Puzzle size={32} />
-              </div>
-              <h3 className="text-xl font-bold mb-3">Konec fragmentace</h3>
-              <p className="text-gray-400">Vše pod jednou střechou. Jeden partner, jedna faktura, jedna odpovědnost.</p>
-           </div>
-           <div className="text-center group">
-              <div className="w-20 h-20 mx-auto bg-transparent border-2 border-white rounded-full flex items-center justify-center mb-6 group-hover:bg-thinkRed group-hover:border-thinkRed transition-all duration-300">
-                <Clock size={32} />
-              </div>
-              <h3 className="text-xl font-bold mb-3">Úspora času a peněz</h3>
-              <p className="text-gray-400">Eliminujeme prostoje a neefektivní procesy. Platíte za výsledky, ne za hodiny.</p>
-           </div>
-           <div className="text-center group">
-              <div className="w-20 h-20 mx-auto bg-transparent border-2 border-white rounded-full flex items-center justify-center mb-6 group-hover:bg-thinkRed group-hover:border-thinkRed transition-all duration-300">
-                <ThumbsUp size={32} />
-              </div>
-              <h3 className="text-xl font-bold mb-3">Zvýšená spokojenost</h3>
-              <p className="text-gray-400">Funkční IT znamená spokojené zaměstnance a hladký chod firmy.</p>
-           </div>
+          <div className="text-center group">
+            <div className="w-20 h-20 mx-auto bg-transparent border-2 border-white rounded-full flex items-center justify-center mb-6 group-hover:bg-thinkRed group-hover:border-thinkRed transition-all duration-300">
+              <Puzzle size={32} />
+            </div>
+            <h3 className="text-xl font-bold mb-3">Konec fragmentace</h3>
+            <p className="text-gray-400">Vše pod jednou střechou. Jeden partner, jedna faktura, jedna odpovědnost.</p>
+          </div>
+          <div className="text-center group">
+            <div className="w-20 h-20 mx-auto bg-transparent border-2 border-white rounded-full flex items-center justify-center mb-6 group-hover:bg-thinkRed group-hover:border-thinkRed transition-all duration-300">
+              <Clock size={32} />
+            </div>
+            <h3 className="text-xl font-bold mb-3">Úspora času a peněz</h3>
+            <p className="text-gray-400">Eliminujeme prostoje a neefektivní procesy. Platíte za výsledky, ne za hodiny.</p>
+          </div>
+          <div className="text-center group">
+            <div className="w-20 h-20 mx-auto bg-transparent border-2 border-white rounded-full flex items-center justify-center mb-6 group-hover:bg-thinkRed group-hover:border-thinkRed transition-all duration-300">
+              <ThumbsUp size={32} />
+            </div>
+            <h3 className="text-xl font-bold mb-3">Zvýšená spokojenost</h3>
+            <p className="text-gray-400">Funkční IT znamená spokojené zaměstnance a hladký chod firmy.</p>
+          </div>
         </div>
       </Section>
 
       {/* Team Section */}
       <Section className="bg-white">
         <h2 className="text-3xl md:text-5xl font-bold mb-16 text-center">Náš tým</h2>
-        
+
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
           {team.map((member, index) => (
             <div key={index} className="flex flex-col items-center">
               {/* Avatar Placeholder */}
               <div className="w-40 h-40 mb-6 rounded-full bg-neutral-100 flex items-center justify-center overflow-hidden border-4 border-white shadow-lg relative group">
-                {/* Use UI Avatars for consistent look without external images */}
-                <img 
-                  src={`https://ui-avatars.com/api/?name=${member.name}&background=1a1a1a&color=fff&size=256&font-size=0.35`} 
+                <img
+                  src={member.image || `https://ui-avatars.com/api/?name=${member.name}&background=1a1a1a&color=fff&size=256&font-size=0.35`}
                   alt={member.name}
                   className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
                 />
               </div>
-              
+
               <h3 className="text-xl font-bold mb-1">{member.name}</h3>
               <p className="text-thinkRed font-medium text-sm uppercase tracking-wider">{member.role}</p>
             </div>
