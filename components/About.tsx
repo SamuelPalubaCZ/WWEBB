@@ -4,9 +4,9 @@ import { Unlink, Lightbulb, MessageCircle, Puzzle, Clock, ThumbsUp } from 'lucid
 
 const About: React.FC = () => {
   const team = [
-    { name: "Samuel Paluba", role: "Founder", initials: "SP", image: "/images/samuel-paluba.jpg" },
+    { name: "Samuel Paluba", role: "Founder", initials: "SP", image: "/images/samuel-paluba.png" },
     { name: "Vojtěch Pell", role: "Vedoucí komunikace, Technik", initials: "VP", image: "/images/vojtech-pell.png" },
-    { name: "Erdinc Daskin", role: "Developer, Technik", initials: "ED", image: "/images/erdinc-daskin.png" },
+    { name: "Erdinc Daskin", role: "Developer, Technik", initials: "ED", image: "/images/erdinc-daskin.jpg" },
     { name: "Ondřej Jansa", role: "Vedoucí developmentu", initials: "OJ", image: "/images/ondrej-jansa.png" },
     { name: "Kateřina Břeňová", role: "UI/UX", initials: "KB" },
     { name: "Tobiáš Mokošín", role: "Nový člen týmu", initials: "TM" }
