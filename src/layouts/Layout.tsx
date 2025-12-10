@@ -1,13 +1,16 @@
+"use client";
+
 import React, { useState, useEffect } from 'react';
-import { Outlet, useLocation, Link } from 'react-router-dom';
+import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 import { Menu, X } from 'lucide-react';
 import Logo from '../components/Logo';
 import Footer from '../components/Footer';
 
-const Layout: React.FC = () => {
+const Layout = ({ children }: { children: React.ReactNode }) => {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
     const [isScrolled, setIsScrolled] = useState(false);
-    const location = useLocation();
+    const pathname = usePathname();
 
     useEffect(() => {
         const handleScroll = () => {
@@ -20,8 +23,8 @@ const Layout: React.FC = () => {
     // Close menu on route change
     useEffect(() => {
         setIsMenuOpen(false);
-        window.scrollTo(0, 0);
-    }, [location]);
+        // window.scrollTo(0, 0); // Next.js handles scroll, but we might keep it if needed
+    }, [pathname]);
 
     const navLinks = [
         { name: 'O nás', path: '/about' },
@@ -30,7 +33,7 @@ const Layout: React.FC = () => {
         { name: 'Kontakt', path: '/contact' },
     ];
 
-    const isActive = (path: string) => location.pathname === path;
+    const isActive = (path: string) => pathname === path;
 
     return (
         <div className="min-h-screen flex flex-col font-sans selection:bg-thinkRed selection:text-white">
@@ -42,8 +45,8 @@ const Layout: React.FC = () => {
                 <div className="max-w-7xl mx-auto px-6 md:px-12 flex justify-between items-center">
                     {/* Logo container */}
                     <Link
-                        to="/"
-                        className={`flex items-center transition-all duration-300 ${isScrolled || location.pathname !== '/' ? 'opacity-100 visible' : 'opacity-0 invisible'
+                        href="/"
+                        className={`flex items-center transition-all duration-300 ${isScrolled || pathname !== '/' ? 'opacity-100 visible' : 'opacity-0 invisible'
                             }`}
                     >
                         <Logo className="h-6 md:h-8" />
@@ -52,7 +55,7 @@ const Layout: React.FC = () => {
                     {/* Desktop Menu */}
                     <div className="hidden md:flex gap-8 items-center">
                         <Link
-                            to="/"
+                            href="/"
                             className={`text-sm font-bold uppercase tracking-wide hover:text-thinkRed transition-colors ${isActive('/') ? 'text-thinkRed' : ''
                                 }`}
                         >
@@ -61,7 +64,7 @@ const Layout: React.FC = () => {
                         {navLinks.map((link) => (
                             <Link
                                 key={link.name}
-                                to={link.path}
+                                href={link.path}
                                 className={`text-sm font-bold uppercase tracking-wide hover:text-thinkRed transition-colors ${isActive(link.path) ? 'text-thinkRed' : ''
                                     }`}
                             >
@@ -83,7 +86,7 @@ const Layout: React.FC = () => {
                 {isMenuOpen && (
                     <div className="md:hidden absolute top-full left-0 w-full bg-white border-b border-gray-100 shadow-xl py-4 px-6 flex flex-col gap-4">
                         <Link
-                            to="/"
+                            href="/"
                             className="text-lg font-medium py-2 border-b border-gray-50 text-left"
                         >
                             Domů
@@ -91,7 +94,7 @@ const Layout: React.FC = () => {
                         {navLinks.map((link) => (
                             <Link
                                 key={link.name}
-                                to={link.path}
+                                href={link.path}
                                 className="text-lg font-medium py-2 border-b border-gray-50 text-left"
                             >
                                 {link.name}
@@ -102,7 +105,7 @@ const Layout: React.FC = () => {
             </nav>
 
             <main className="flex-grow pt-0">
-                <Outlet />
+                {children}
             </main>
 
             <Footer />
@@ -111,3 +114,4 @@ const Layout: React.FC = () => {
 };
 
 export default Layout;
+

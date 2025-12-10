@@ -1,4 +1,5 @@
 import React from 'react';
+import Image from 'next/image';
 import Section from './Section';
 import { Unlink, Lightbulb, MessageCircle, Puzzle, Clock, ThumbsUp } from 'lucide-react';
 
@@ -8,8 +9,8 @@ const About: React.FC = () => {
     { name: "Vojtěch Pell", role: "Vedoucí komunikace, Technik", initials: "VP", image: "/images/vojtech-pell.png" },
     { name: "Erdinc Daskin", role: "Developer, Technik", initials: "ED", image: "/images/erdinc-daskin.jpg" },
     { name: "Ondřej Jansa", role: "Vedoucí developmentu", initials: "OJ", image: "/images/ondrej-jansa.png" },
-    { name: "Kateřina Břeňová", role: "UI/UX", initials: "KB" },
-    { name: "Tobiáš Mokošín", role: "Nový člen týmu", initials: "TM" }
+    { name: "Kateřina Břeňová", role: "UI/UX", initials: "KB", image: "/images/katerina-brenova.jpg" },
+    { name: "Tobiáš Mokošín", role: "Nový člen týmu", initials: "TM", image: "/images/tobias-mokosin.jpg" }
   ];
 
   return (
@@ -49,31 +50,31 @@ const About: React.FC = () => {
       </Section>
 
       {/* Value Prop (moved from Home) */}
-      <Section className="bg-neutral-900 text-white">
-        <h2 className="text-3xl md:text-4xl font-bold mb-16 text-center">
+      <Section className="bg-gray-50">
+        <h2 className="text-3xl md:text-4xl font-bold mb-16 text-center text-thinkBlack">
           Co přinášíme
         </h2>
         <div className="grid md:grid-cols-3 gap-12">
           <div className="text-center group">
-            <div className="w-20 h-20 mx-auto bg-transparent border-2 border-white rounded-full flex items-center justify-center mb-6 group-hover:bg-thinkRed group-hover:border-thinkRed transition-all duration-300">
+            <div className="w-20 h-20 mx-auto bg-transparent border-2 border-thinkBlack rounded-full flex items-center justify-center mb-6 group-hover:bg-thinkRed group-hover:border-thinkRed group-hover:text-white transition-all duration-300 text-thinkBlack">
               <Puzzle size={32} />
             </div>
-            <h3 className="text-xl font-bold mb-3">Konec fragmentace</h3>
-            <p className="text-gray-400">Vše pod jednou střechou. Jeden partner, jedna faktura, jedna odpovědnost.</p>
+            <h3 className="text-xl font-bold mb-3 text-thinkBlack">Konec fragmentace</h3>
+            <p className="text-gray-600">Vše pod jednou střechou. Jeden partner, jedna faktura, jedna odpovědnost.</p>
           </div>
           <div className="text-center group">
-            <div className="w-20 h-20 mx-auto bg-transparent border-2 border-white rounded-full flex items-center justify-center mb-6 group-hover:bg-thinkRed group-hover:border-thinkRed transition-all duration-300">
+            <div className="w-20 h-20 mx-auto bg-transparent border-2 border-thinkBlack rounded-full flex items-center justify-center mb-6 group-hover:bg-thinkRed group-hover:border-thinkRed group-hover:text-white transition-all duration-300 text-thinkBlack">
               <Clock size={32} />
             </div>
-            <h3 className="text-xl font-bold mb-3">Úspora času a peněz</h3>
-            <p className="text-gray-400">Eliminujeme prostoje a neefektivní procesy. Platíte za výsledky, ne za hodiny.</p>
+            <h3 className="text-xl font-bold mb-3 text-thinkBlack">Úspora času a peněz</h3>
+            <p className="text-gray-600">Eliminujeme prostoje a neefektivní procesy. Platíte za výsledky, ne za hodiny.</p>
           </div>
           <div className="text-center group">
-            <div className="w-20 h-20 mx-auto bg-transparent border-2 border-white rounded-full flex items-center justify-center mb-6 group-hover:bg-thinkRed group-hover:border-thinkRed transition-all duration-300">
+            <div className="w-20 h-20 mx-auto bg-transparent border-2 border-thinkBlack rounded-full flex items-center justify-center mb-6 group-hover:bg-thinkRed group-hover:border-thinkRed group-hover:text-white transition-all duration-300 text-thinkBlack">
               <ThumbsUp size={32} />
             </div>
-            <h3 className="text-xl font-bold mb-3">Zvýšená spokojenost</h3>
-            <p className="text-gray-400">Funkční IT znamená spokojené zaměstnance a hladký chod firmy.</p>
+            <h3 className="text-xl font-bold mb-3 text-thinkBlack">Zvýšená spokojenost</h3>
+            <p className="text-gray-600">Funkční IT znamená spokojené zaměstnance a hladký chod firmy.</p>
           </div>
         </div>
       </Section>
@@ -87,10 +88,12 @@ const About: React.FC = () => {
             <div key={index} className="flex flex-col items-center">
               {/* Avatar Placeholder */}
               <div className="w-40 h-40 mb-6 rounded-full bg-neutral-100 flex items-center justify-center overflow-hidden border-4 border-white shadow-lg relative group">
-                <img
+                <Image
                   src={member.image || `https://ui-avatars.com/api/?name=${member.name}&background=1a1a1a&color=fff&size=256&font-size=0.35`}
                   alt={member.name}
-                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                  fill
+                  className="object-cover group-hover:scale-110 transition-transform duration-500"
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                 />
               </div>
 
