@@ -1,12 +1,9 @@
 import React from 'react';
+import Link from 'next/link';
 import Section from './Section';
 import { Users, Recycle } from 'lucide-react';
 
-interface AffiliateProps {
-  onCtaClick: () => void;
-}
-
-const Affiliate: React.FC<AffiliateProps> = ({ onCtaClick }) => {
+const Affiliate: React.FC = () => {
   return (
     <Section id="affiliate" className="bg-neutral-100">
       <h2 className="text-3xl md:text-5xl font-bold mb-12">Affiliate Program</h2>
@@ -21,12 +18,12 @@ const Affiliate: React.FC<AffiliateProps> = ({ onCtaClick }) => {
           <p className="text-gray-600 mb-8 leading-relaxed flex-grow">
             Získejte <span className="text-thinkRed font-bold">20 % z profitu</span> za každého klienta, kterého nám doporučíte a který úspěšně využije naše digitální nebo IT služby. Je to skvělý způsob, jak monetizovat vaše kontakty.
           </p>
-          <button
-            onClick={onCtaClick}
-            className="w-full md:w-auto px-6 py-3 bg-thinkBlack text-white font-bold hover:bg-thinkRed transition-colors duration-300"
+          <Link
+            href="/contact"
+            className="w-full md:w-auto px-6 py-3 bg-thinkBlack text-white font-bold hover:bg-thinkRed transition-colors duration-300 text-center"
           >
             Mám zájem
-          </button>
+          </Link>
         </div>
 
         {/* Program 2 */}
@@ -38,12 +35,12 @@ const Affiliate: React.FC<AffiliateProps> = ({ onCtaClick }) => {
           <p className="text-gray-600 mb-8 leading-relaxed flex-grow">
             Odměníme vás <span className="text-thinkRed font-bold">20 % z profitu</span> z prodeje repasované techniky. Stačí nám dát tip na firmu nebo jednotlivce, kteří vyřazují notebooky a další IT vybavení. Pomáháte tak chránit životní prostředí a vyděláváte.
           </p>
-          <button
-            onClick={onCtaClick}
-            className="w-full md:w-auto px-6 py-3 bg-thinkBlack text-white font-bold hover:bg-thinkRed transition-colors duration-300"
+          <Link
+            href="/contact"
+            className="w-full md:w-auto px-6 py-3 bg-thinkBlack text-white font-bold hover:bg-thinkRed transition-colors duration-300 text-center"
           >
             Mám zájem
-          </button>
+          </Link>
         </div>
       </div>
     </Section>
