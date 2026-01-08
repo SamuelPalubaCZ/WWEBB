@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Script from "next/script";
 import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { VercelToolbar } from '@vercel/toolbar/next';
@@ -33,6 +34,11 @@ export default function RootLayout({
                 <Analytics />
                 <SpeedInsights />
                 {shouldInjectToolbar && <VercelToolbar />}
+                {/* Yeastar Live Chat Widget */}
+                <Script
+                    src="https://thinkhome.euycm.yeastarcloud.com/live_chat.v1.0.0.js?channelNumber=LC00000"
+                    strategy="afterInteractive"
+                />
             </body>
         </html>
     );
